@@ -7,7 +7,7 @@ import Grid from 'material-ui/Grid';
 import logo from '../images/cfd-circle-icon-white.png';
 import './Header.css';
 
-const Header = ({ user, isAuthenticated }) => (
+const Header = ({ isAuthenticated }) => (
   <AppBar position="fixed">
     <Toolbar>
       <Link to="/">
@@ -25,7 +25,7 @@ const Header = ({ user, isAuthenticated }) => (
           </Grid>
         )}
         <Grid item>
-          <Login isAuthenticated={isAuthenticated} user={user} />
+          <Login isAuthenticated={isAuthenticated} />
         </Grid>
       </Grid>
     </Toolbar>
