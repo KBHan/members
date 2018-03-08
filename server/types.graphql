@@ -8,16 +8,92 @@ type User @model {
   # Optional system fields (remove if not needed):
   createdAt: DateTime! # read-only (managed by Graphcool)
   updatedAt: DateTime! # read-only (managed by Graphcool)
-
+  
+  # Profile
+  auth0UserId: String! @isUnique
   email: String! @isUnique
   name: String
-  auth0UserId: String! @isUnique
   picture: String
-  githubName: String
-  flowdockName: String
-  description: String
   phone: String
   role: UserRole @defaultValue(value: REGULAR)
+  servDescription: String
+  target: String
+  type: String
+  
+  # Contact
+  first: String
+  last: String
+  contactEmail: String
+  contactPhone: String
+
+  # Project Management
+  githubName: String
+  flowdockName: String
+
+  # Summary
+  description: String
+
+  # Address
+  street: String
+  city: String
+  zip: String
+
+  # Financial Services
+  microLoans: Boolean
+  capInvestment: Boolean
+  indDevAccounts: Boolean
+  comLoans: Boolean
+  lendingCircle: Boolean
+  
+  # housing
+  affHousing: Boolean
+  comLandTrust: Boolean
+  dnPmtAssistance: Boolean
+  coHousing: Boolean
+
+  # workforce
+  skillDev: Boolean
+  apprentice: Boolean
+  onTheJob: Boolean
+  resume: Boolean
+  comOrg: Boolean
+
+  # community
+  econJustice: Boolean
+  eduOrg: Boolean
+  envJustice: Boolean
+  foodJustice: Boolean
+  healthJustice: Boolean
+  immOrg: Boolean
+  laborOrg: Boolean
+  racialJustice: Boolean
+
+  # advocacy
+  advocacy: Boolean
+  policy: Boolean
+
+  # edu
+  arts: Boolean
+  compClass: Boolean
+  finEdu: Boolean
+  gedClass: Boolean
+  youthDev: Boolean
+  citizenship: Boolean
+
+  # anchor
+  localHire: Boolean
+  localProcure: Boolean
+  localInv: Boolean
+
+  # direct
+  foodBank: Boolean
+  healthyFood: Boolean
+  sharedSpace: Boolean
+  transit: Boolean
+  volunteer: Boolean
+  healthCare: Boolean
+  interpret: Boolean
+  other: String
   # Uncomment below - you can declare relations between models like this
 
   # posts: [Post!]! @relation(name: "UserPosts")
