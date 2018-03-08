@@ -16,6 +16,7 @@ type User @model {
   githubName: String
   flowdockName: String
   description: String
+  phone: String
   role: UserRole @defaultValue(value: REGULAR)
   # Uncomment below - you can declare relations between models like this
 
