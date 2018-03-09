@@ -23,20 +23,15 @@ class EntitySummaryEditForm extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.sendToParent = this.sendToParent.bind(this);
-  }
-
-  sendToParent(content) {
-    this.props.onFormSubmit(content);
   }
 
   handleChange(e) {
     this.setState({ content: e.target.value });
-    this.sendToParent(e.target.value);
     console.log(this.state.content);
   }
 
   handleSubmit(e) {
+    this.props.onFormSubmit(this.state.content);
     e.preventDefault();
   }
 
