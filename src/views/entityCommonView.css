@@ -1,0 +1,27 @@
+.body {
+  padding: 10px;
+}
+.header {
+  border: 3px solid #f0b160;
+  width: 1000px;
+  height: 100px;
+  padding: 10px;
+}
+.column1 {
+  border: 3px solid #f0b160;
+  width: 200px;
+  padding: 30px;
+}
+
+.column3 {
+  border: 3px solid #f0b160;
+  width: 800px;
+  padding: 30px;
+}
+
+.footer {
+  border: 3px solid #f0b160;
+  width: 1000px;
+  height: 100px;
+  padding: 10px;
+}

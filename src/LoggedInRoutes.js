@@ -12,9 +12,12 @@ import ProjectsListPage from './pages/ProjectsListPage';
 import ProjectCreatePage from './pages/ProjectCreatePage';
 import NoMatchPage from './pages/NoMatchPage';
 
+import EntityCommonView from './views/entityCommonView';
+
 const LoggedInRoutes = ({ user }) => (
   <Switch>
     <Route exact path="/" component={MemberResourcesPage} />
+    <Route exact path="/entity" component={EntityCommonView} />
     <Route exact path="/me" render={() => <MemberProfile user={user} />} />
     <Route exact path="/me/edit" component={MemberProfileEditPage} />
     <Route exact path="/admin/onboarding" component={EmailListPage} />

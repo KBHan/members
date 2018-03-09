@@ -1,16 +1,39 @@
 import React from 'react';
-import membersPic from '../images/members-pic.jpg';
+import cwbnLandingPic from '../images/cwbn-landing-model-pic.png';
+import logoTitle from '../images/logo-title-pic.png';
 import './LandingPage.css';
 
 const LandingPage = () => (
   <div>
-    <h1>Welcome to the Code for Denver Members Site</h1>
+    <h1>Sample Landing Page Image </h1>
+    <p>Please sign up or log in</p>
     <img
       className="LandingPage-members-pic"
-      src={membersPic}
+      src={cwbnLandingPic}
       alt="Some of the members of Code for Denver"
     />
-    <p>Please sign up or log in</p>
+
+    <div className="MenuBar">
+      <ul>
+        <li>
+          <img className="LogoTitle" src={logoTitle} alt="CWBN logo" />
+        </li>
+
+        <li>HOME</li>
+        <li>ABOUT</li>
+        <li>SERVICES</li>
+        <li>OUR TEAM</li>
+        <li>HOW IT WORKS</li>
+        <li>PEOPLE SAY</li>
+        <li>CONTACT</li>
+      </ul>
+    </div>
+
+    <div className="SearchBar">
+      <p className="Slogan"> Let's Build A Stronger Local Economy '</p>
+      <p> Some introductory details here </p>
+      <p> I need [[[this service ]]] in [[[this city]]] Search Button </p>
+    </div>
   </div>
 );
 

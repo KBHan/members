@@ -1,3 +1,31 @@
 .LandingPage-members-pic {
   max-width: 100%;
 }
+
+.LogoTitle {
+  max-width: 20%;
+}
+
+ul {
+  background-color: rgb(83, 41, 151);
+}
+
+li {
+  display: inline;
+  margin-right: 10px;
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.SearchBar {
+  padding: 10px;
+  background-color: rgb(83, 41, 151);
+  text-align: center;
+  color: white;
+}
+
+.Slogan {
+  font-size: 40px;
+  font-weight: bold;
+}

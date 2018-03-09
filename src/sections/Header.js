@@ -4,14 +4,14 @@ import Login from './Login';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Grid from 'material-ui/Grid';
-import logo from '../images/cfd-circle-icon-white.png';
+import logo from '../images/logo-title-pic.png';
 import './Header.css';
 
 const Header = ({ user, isAuthenticated }) => (
   <AppBar position="fixed">
     <Toolbar>
       <Link to="/">
-        <img className="Header-logo" src={logo} alt="code for denver logo" />
+        <img className="Header-logo" src={logo} alt="CWBN logo" />
       </Link>
       <Grid container justify="space-between" alignItems="center">
         {isAuthenticated && (
