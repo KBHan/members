@@ -14,7 +14,7 @@ const LandingPage = () => (
     />
 
     <div className="MenuBar">
-      <ul>
+      <ul className="MenuList">
         <li>
           <img className="LogoTitle" src={logoTitle} alt="CWBN logo" />
         </li>

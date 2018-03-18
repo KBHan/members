@@ -3,15 +3,17 @@
 }
 
 .LogoTitle {
-  max-width: 20%;
+  max-width: 200px;
 }
-
-ul {
+.MenuList {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   background-color: rgb(83, 41, 151);
 }
 
 li {
-  display: inline;
+  list-style-type: none;
   margin-right: 10px;
   font-size: 10px;
   color: white;
