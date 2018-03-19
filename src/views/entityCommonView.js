@@ -7,7 +7,7 @@ import EntityServices from './entityServices';
 import EntitySupport from './entitySupport';
 import EntityContact from './entityContact';
 import './entityCommonView.css';
-import CreateUser from './createUser';
+import CreateEntity from './createEntity';
 
 class EntityCommonView extends Component {
   constructor(props) {
@@ -96,7 +96,7 @@ class EntityCommonView extends Component {
         <table>
           <tr>
             <td className="header">
-              <CreateUser />
+              <CreateEntity />
               create entity here
             </td>
           </tr>

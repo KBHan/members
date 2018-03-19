@@ -14,21 +14,66 @@ type User @model {
   email: String! @isUnique
   name: String
   picture: String
-  phone: String
+ 
   role: UserRole @defaultValue(value: REGULAR)
+  
+
+  # Project Management
+  githubName: String
+  flowdockName: String
+  description: String
+
+  
+  # Uncomment below - you can declare relations between models like this
+
+  # posts: [Post!]! @relation(name: "UserPosts")
+}
+
+enum UserRole {
+   REGULAR,
+   ADMIN
+}
+
+# Uncomment the model below as well
+
+# type Post @model {
+#   id: ID! @isUnique
+#   title: String!
+#
+#   # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
+#   author: User! @relation(name: "UserPosts")
+# }
+
+type Project @model {
+  # Required system field:
+  id: ID! @isUnique # read-only (managed by Graphcool)
+
+  # Optional system fields (remove if not needed):
+  createdAt: DateTime! # read-only (managed by Graphcool)
+  updatedAt: DateTime! # read-only (managed by Graphcool)
+
+  name: String! @isUnique
+  description: String
+}
+
+type Entity @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  entityName: String! @isUnique
+  entityEmail: String
+
+  phone: String
   servDescription: String
   target: String
   type: String
-  
+
   # Contact
   first: String
   last: String
   contactEmail: String
   contactPhone: String
-
-  # Project Management
-  githubName: String
-  flowdockName: String
 
   # Summary
   description: String
@@ -94,34 +139,4 @@ type User @model {
   healthCare: Boolean
   interpret: Boolean
   other: String
-  # Uncomment below - you can declare relations between models like this
-
-  # posts: [Post!]! @relation(name: "UserPosts")
-}
-
-enum UserRole {
-   REGULAR,
-   ADMIN
-}
-
-# Uncomment the model below as well
-
-# type Post @model {
-#   id: ID! @isUnique
-#   title: String!
-#
-#   # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
-#   author: User! @relation(name: "UserPosts")
-# }
-
-type Project @model {
-  # Required system field:
-  id: ID! @isUnique # read-only (managed by Graphcool)
-
-  # Optional system fields (remove if not needed):
-  createdAt: DateTime! # read-only (managed by Graphcool)
-  updatedAt: DateTime! # read-only (managed by Graphcool)
-
-  name: String! @isUnique
-  description: String
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ShowEachUser from './showEachUser';
+import ShowEachEntity from './showEachEntity';
 
-class ShowAllUsers extends Component {
+class ShowAllEntities extends Component {
   render() {
     return (
-      <div className="ShowAllUsers">
+      <div className="ShowAllEntities">
         {this.props.names.map((name, i) => {
-          return <ShowEachUser key={i} name={name} />;
+          return <ShowEachEntity key={i} name={name} />;
         })}
         <div
           style={{ float: 'left', clear: 'both' }}
@@ -19,6 +19,6 @@ class ShowAllUsers extends Component {
   }
 }
 
-export default ShowAllUsers;
+export default ShowAllEntities;
 
-ShowAllUsers.propTypes = {};
+ShowAllEntities.propTypes = {};

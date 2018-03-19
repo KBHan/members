@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class CreateNewUser extends Component {
+class CreateNewEntity extends Component {
   render() {
     return (
-      <div className="CreateNewUser">
+      <div className="CreateNewEntity">
         <input
           className="InputField"
           placeholder="Enter a user name..."
@@ -14,7 +14,7 @@ class CreateNewUser extends Component {
           onKeyDown={e => {
             if (e.keyCode === 13) {
               // ENTER
-              console.log('new user submitted');
+              console.log('new entity submitted');
               this.props.onSend();
               console.log('props.onSend()');
               this.props.onResetText();
@@ -27,4 +27,4 @@ class CreateNewUser extends Component {
   }
 }
 
-export default CreateNewUser;
+export default CreateNewEntity;

@@ -47,7 +47,14 @@ permissions:
   - operation: Project.update
     authenticated: true
   - operation: Project.create
+    authentication: 
+  - operation: Entity.create
     authentication: true
+  - operation: Entity.read
+    authentication: true
+  - operation: Entity.update
+    authentication: true
+    
 # ADMIN PERMISSIONS
   - operation: User.delete
     authenticated: true
