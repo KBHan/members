@@ -6,7 +6,7 @@ class ShowAllEntities extends Component {
     return (
       <div className="ShowAllEntities">
         {this.props.names.map((name, i) => {
-          return <ShowEachEntity key={i} name={name} />;
+          return <ShowEachEntity key={i} name={name.entityName} />;
         })}
         <div
           style={{ float: 'left', clear: 'both' }}

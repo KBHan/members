@@ -26,6 +26,7 @@ class CreateEntity extends Component {
         ENTITY_NAME_KEY,
         result.data.createEntity.entityName
       );
+      console.log(result.data.createEntity.entityName);
       localStorage.setItem(ENTITY_ID_KEY, result.data.createEntity.id);
       this.forceUpdate();
     }
@@ -44,6 +45,7 @@ class CreateEntity extends Component {
           onResetText={this._resetText}
           onSend={this._onSend}
         />
+        <div>{this.state.entityName}</div>
         Show All
         <ShowAllEntities
           names={this.props.allEntitiesQuery.allEntities || []}
