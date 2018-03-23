@@ -1,23 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ShowEachEntity from './showEachEntity';
 
-class ShowAllEntities extends Component {
-  render() {
-    return (
-      <div className="ShowAllEntities">
-        {this.props.names.map((name, i) => {
-          return <ShowEachEntity key={i} name={name.entityName} />;
-        })}
-        <div
-          style={{ float: 'left', clear: 'both' }}
-          ref={el => {
-            this.props.endRef(el);
-          }}
-        />
-      </div>
-    );
-  }
-}
+const ShowAllEntities = ({ names }) => (
+  <div className="ShowAllEntities">
+    {names.map((name, i) => {
+      return <ShowEachEntity key={i} name={name.entityName} />;
+    })}
+  </div>
+);
 
 export default ShowAllEntities;
 

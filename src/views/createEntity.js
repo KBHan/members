@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -6,72 +6,40 @@ import gql from 'graphql-tag';
 import CreateNewEntity from './createNewEntity';
 import ShowAllEntities from './showAllEntities';
 
-const ENTITY_NAME_KEY = 'ENTITY_NAME';
-const ENTITY_ID_KEY = 'ENTITY_ID';
-
-class CreateEntity extends Component {
-  state = {
-    entityName: ''
-  };
-
-  async componentWillMount() {
-    let name = localStorage.getItem(ENTITY_NAME_KEY);
+/* async componentWillMount() {
+    let name 
     if (!name) {
+      let result;
       name = this.state.entityName;
-      const result = await this.props.createEntityMutation({
-        variables: { name }
-      });
-      //const personData = { name, id: 'asd'}
-      localStorage.setItem(
-        ENTITY_NAME_KEY,
-        result.data.createEntity.entityName
-      );
-      console.log(result.data.createEntity.entityName);
-      localStorage.setItem(ENTITY_ID_KEY, result.data.createEntity.id);
-      this.forceUpdate();
-    }
-  }
-
-  render() {
-    const name = localStorage.getItem(ENTITY_NAME_KEY);
-    const entityId = localStorage.getItem(ENTITY_ID_KEY);
-    return (
-      <div className="CreateEntity">
-        Create New
-        <CreateNewEntity
-          name={name}
-          id={entityId}
-          onTextInput={name => this.setState({ entityName: name })}
-          onResetText={this._resetText}
-          onSend={this._onSend}
-        />
-        <div>{this.state.entityName}</div>
-        Show All
-        <ShowAllEntities
-          names={this.props.allEntitiesQuery.allEntities || []}
-          endRef={this._endRef}
-        />
-      </div>
-    );
-  }
-
-  _onSend = () => {
-    console.log(`Send: ${this.state.entityName}`);
-    this.props.createEntityMutation({
-      variables: {
-        entityName: this.state.entityName
+      try {
+        result = await this.props.createEntityMutation({
+                        variables: { entityName: name }
+                      });
+        localStorage.setItem(
+          ENTITY_NAME_KEY,
+          result.data.createEntity.entityName
+        );
+        console.log(result.data.createEntity.entityName);
+        localStorage.setItem(ENTITY_ID_KEY, result.data.createEntity.id);
+     } catch (e) {
+        console.log(e)
       }
-    });
-  };
+      
+    }
+  } */
 
-  _resetText = () => {
-    this.setState({ entityName: '' });
-  };
-
-  _endRef = element => {
-    this.endRef = element;
-  };
-}
+const CreateEntity = ({ entityName, allEntitiesQuery, refetch, onCreate }) => {
+  console.log(typeof onCreate);
+  return (
+    <div className="CreateEntity">
+      Create New
+      <CreateNewEntity onCreate={onCreate} />
+      <div>{entityName}</div>
+      Show All
+      <ShowAllEntities names={allEntitiesQuery.allEntities || []} />
+    </div>
+  );
+};
 
 const ALL_ENTITIES_QUERY = gql`
   query AllEntitiesQuery {
@@ -93,5 +61,10 @@ const CREATE_ENTITY_MUTATION = gql`
 
 export default compose(
   graphql(ALL_ENTITIES_QUERY, { name: 'allEntitiesQuery' }),
-  graphql(CREATE_ENTITY_MUTATION, { name: 'createEntityMutation' })
+  graphql(CREATE_ENTITY_MUTATION, {
+    props: ({ mutate }) => ({
+      onCreate: entityName => mutate({ variables: { entityName } })
+    }),
+    options: { refetchQueries: ['allEntities'] }
+  })
 )(CreateEntity);
